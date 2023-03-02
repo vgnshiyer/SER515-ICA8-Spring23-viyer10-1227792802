@@ -1,5 +1,6 @@
 package ser515.ica8.spring23.viyer10;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -47,7 +48,14 @@ public class urinalsTest {
 
     @Test
     public void test_with_no_file_in_directory(){
-        String filename = "not_there.txt";
+        String filename = "not_there.dat";
         assertThrows(FileNotFoundException.class,() -> urinals.openFile(filename));
+    }
+
+    @Test
+    public void test_with_file_with_wrong_extension(){
+        String filename = "wrong.txt"; // must be .dat
+        Exception exception = assertThrows(Exception.class,() -> urinals.openFile(filename));
+        assertEquals(exception.getMessage(), "File should have an extension of .dat");
     }
 }

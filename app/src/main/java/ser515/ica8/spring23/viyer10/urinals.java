@@ -21,7 +21,9 @@ public class urinals {
         return true;
     }
 
-    public static File openFile(String filename) throws FileNotFoundException{
+    public static File openFile(String filename) throws FileNotFoundException, Exception{
+        if(!filename.endsWith(".dat")) throw new Exception("File should have an extension of .dat");
+
         InputStream inputStream = urinals.class.getClassLoader().getResourceAsStream(filename);
 
         if(inputStream == null){
