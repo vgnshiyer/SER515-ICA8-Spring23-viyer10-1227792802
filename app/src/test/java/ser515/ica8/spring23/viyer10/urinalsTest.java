@@ -41,4 +41,6 @@ public class urinalsTest {
         var result = urinal.goodString(input);
         assertTrue(result);
     }
+
+    
 }

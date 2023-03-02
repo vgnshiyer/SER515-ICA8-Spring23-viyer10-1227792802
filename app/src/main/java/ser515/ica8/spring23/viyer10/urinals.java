@@ -1,6 +1,7 @@
 package ser515.ica8.spring23.viyer10;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -15,6 +16,11 @@ public class urinals {
             if(c != '0' && c != '1') return false;
         }
         return true;
+    }
+
+    public static File openFile(String filename){
+        // YET TO BE IMPLEMENTED
+        return null;
     }
 
     public static void main(String[] args){
