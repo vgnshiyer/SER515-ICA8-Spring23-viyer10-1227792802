@@ -10,6 +10,12 @@ public class urinals {
         if(urinalInput.length() < 1 || urinalInput.length() > 20){
             return false;
         }
+
+        int n = urinalInput.length();
+        for(int i = 0; i < n; i++){
+            char c = urinalInput.charAt(i);
+            if(c != '1' || c != '0') return false;
+        }
         return true;
     }
 

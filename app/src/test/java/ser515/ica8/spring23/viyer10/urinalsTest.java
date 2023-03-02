@@ -22,4 +22,11 @@ public class urinalsTest {
         var result = urinal.goodString(input);
         assertFalse(result);
     }
+
+    @Test
+    public void test_string_with_invalid_characters(){
+        String input = "10xxxx";
+        var result = urinal.goodString(input);
+        assertFalse(result);
+    }
 }
