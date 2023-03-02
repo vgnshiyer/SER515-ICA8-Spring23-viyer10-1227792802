@@ -7,10 +7,10 @@ import java.io.InputStreamReader;
 public class urinals {
 
     public Boolean goodString(String urinalInput){
-        if(urinalInput.length() < 1){
+        if(urinalInput.length() < 1 || urinalInput.length() > 20){
             return false;
         }
-        return null;
+        return true;
     }
 
     public static void main(String[] args){

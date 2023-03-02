@@ -15,4 +15,11 @@ public class urinalsTest {
         var result = urinal.goodString(input);
         assertFalse(result);
     }
+    
+    @Test
+    public void test_string_longer_than_20(){
+        String input = "123456789012345678901";
+        var result = urinal.goodString(input);
+        assertFalse(result);
+    }
 }
