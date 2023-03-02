@@ -105,4 +105,26 @@ public class urinalsTest {
         List<String> urinal_list = urinals.scanFile(filename);
         assertEquals(urinal_list.size(), 3);
     }
+
+    @Test
+    public void test_count_urinals(){
+        System.out.println("====== Vignesh Iyer == TEST TEN EXECUTED =======");
+        
+        String test_case_1 = "00000";
+        assertEquals(urinals.countUrinals(test_case_1), 3);
+        String test_case_2 = "0110";
+        assertEquals(urinals.countUrinals(test_case_2), -1);
+        String test_case_3 = "11";
+        assertEquals(urinals.countUrinals(test_case_3), -1);
+        String test_case_4 = "1001";
+        assertEquals(urinals.countUrinals(test_case_4), 0);
+        String test_case_5 = "00100";
+        assertEquals(urinals.countUrinals(test_case_5), 2);
+        String test_case_6 = "01000000";
+        assertEquals(urinals.countUrinals(test_case_6), 2);
+        String test_case_7 = "xxsfesifn";
+        assertEquals(urinals.countUrinals(test_case_7), -1);
+        String test_case_8 = "010101010";
+        assertEquals(urinals.countUrinals(test_case_8), 0);
+    }
 }

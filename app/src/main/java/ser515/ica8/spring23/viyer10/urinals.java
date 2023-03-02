@@ -52,7 +52,8 @@ public class urinals {
     }
 
     public static int countUrinals(String urinal_seq){
-        // YET TO BE IMPLEMENTED
+        if(!goodString(urinal_seq)) return -1;
+        
         return -1;
     }
 
