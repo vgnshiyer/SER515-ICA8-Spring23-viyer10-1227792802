@@ -111,20 +111,28 @@ public class urinalsTest {
         System.out.println("====== Vignesh Iyer == TEST TEN EXECUTED =======");
         
         String test_case_1 = "00000";
+        System.out.println("Testing for input : " + test_case_1);
         assertEquals(urinals.countUrinals(test_case_1), 3);
         String test_case_2 = "0110";
+        System.out.println("Testing for input : " + test_case_2);
         assertEquals(urinals.countUrinals(test_case_2), -1);
         String test_case_3 = "11";
+        System.out.println("Testing for input : " + test_case_3);
         assertEquals(urinals.countUrinals(test_case_3), -1);
         String test_case_4 = "1001";
+        System.out.println("Testing for input : " + test_case_4);
         assertEquals(urinals.countUrinals(test_case_4), 0);
         String test_case_5 = "00100";
+        System.out.println("Testing for input : " + test_case_5);
         assertEquals(urinals.countUrinals(test_case_5), 2);
         String test_case_6 = "01000000";
-        assertEquals(urinals.countUrinals(test_case_6), 2);
+        System.out.println("Testing for input : " + test_case_6);
+        assertEquals(urinals.countUrinals(test_case_6), 3);
         String test_case_7 = "xxsfesifn";
+        System.out.println("Testing for input : " + test_case_7);
         assertEquals(urinals.countUrinals(test_case_7), -1);
         String test_case_8 = "010101010";
+        System.out.println("Testing for input : " + test_case_8);
         assertEquals(urinals.countUrinals(test_case_8), 0);
     }
 }

@@ -53,8 +53,25 @@ public class urinals {
 
     public static int countUrinals(String urinal_seq){
         if(!goodString(urinal_seq)) return -1;
-        
-        return -1;
+
+        int urinalCount = 0, zeroCount = 0, n = urinal_seq.length();
+        for(int i = 0; i < n;){
+            char curr = urinal_seq.charAt(i);
+            zeroCount += (curr == '0') ? 1 : 0; // counting consecutive zeros
+            if(i == urinal_seq.length()-1 && curr == '0'){
+                urinalCount += (zeroCount + 1) / 2;
+                break;
+            }
+            if(curr == '1'){
+                zeroCount -= 1;
+                urinalCount += (zeroCount + 1) / 2;
+                zeroCount = 0;
+                i+=2;
+            } else {
+                i++;
+            }
+        }
+        return urinalCount;
     }
 
     public static void main(String[] args){
