@@ -7,7 +7,9 @@ import java.io.InputStreamReader;
 public class urinals {
 
     public Boolean goodString(String urinalInput){
-        // YET TO BE IMPLEMENTED
+        if(urinalInput.length() < 1){
+            return false;
+        }
         return null;
     }
 
