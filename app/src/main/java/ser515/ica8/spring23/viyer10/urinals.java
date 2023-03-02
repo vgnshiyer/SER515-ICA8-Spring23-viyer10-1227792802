@@ -6,7 +6,10 @@ import java.io.InputStreamReader;
 
 public class urinals {
 
-
+    public Boolean goodString(String urinalInput){
+        // YET TO BE IMPLEMENTED
+        return null;
+    }
 
     public static void main(String[] args){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
