@@ -2,8 +2,11 @@ package ser515.ica8.spring23.viyer10;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class urinals {
 
@@ -18,8 +21,13 @@ public class urinals {
         return true;
     }
 
-    public static File openFile(String filename){
-        // YET TO BE IMPLEMENTED
+    public static File openFile(String filename) throws FileNotFoundException{
+        InputStream inputStream = urinals.class.getClassLoader().getResourceAsStream(filename);
+
+        if(inputStream == null){
+            throw new FileNotFoundException("File with name "+filename+" not found.");
+        }
+        Scanner scanner = new Scanner(inputStream);
         return null;
     }
 
