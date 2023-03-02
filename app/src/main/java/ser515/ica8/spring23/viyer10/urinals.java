@@ -36,6 +36,7 @@ public class urinals {
         List<String> urinal_list = new ArrayList<String>();
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
+            if(line.equals("-1")) break;
             urinal_list.add(line);
         }
         return urinal_list;
