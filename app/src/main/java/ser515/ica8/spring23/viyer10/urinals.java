@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class urinals {
@@ -21,7 +23,7 @@ public class urinals {
         return true;
     }
 
-    public static File openFile(String filename) throws FileNotFoundException, Exception{
+    public static List<String> scanFile(String filename) throws FileNotFoundException, Exception{
         if(!filename.endsWith(".dat")) throw new Exception("File should have an extension of .dat");
 
         InputStream inputStream = urinals.class.getClassLoader().getResourceAsStream(filename);
@@ -30,7 +32,13 @@ public class urinals {
             throw new FileNotFoundException("File with name "+filename+" not found.");
         }
         Scanner scanner = new Scanner(inputStream);
-        return null;
+
+        List<String> urinal_list = new ArrayList<String>();
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            urinal_list.add(line);
+        }
+        return urinal_list;
     }
 
     public static void main(String[] args){
