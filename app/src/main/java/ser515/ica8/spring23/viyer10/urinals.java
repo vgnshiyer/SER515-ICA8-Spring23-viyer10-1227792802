@@ -51,6 +51,11 @@ public class urinals {
         return urinal_list;
     }
 
+    public static int countUrinals(String urinal_seq){
+        // YET TO BE IMPLEMENTED
+        return -1;
+    }
+
     public static void main(String[] args){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
