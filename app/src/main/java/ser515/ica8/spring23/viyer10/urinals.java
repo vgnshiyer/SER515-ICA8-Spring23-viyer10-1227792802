@@ -6,15 +6,13 @@ import java.io.InputStreamReader;
 
 public class urinals {
 
-    public Boolean goodString(String urinalInput){
-        if(urinalInput.length() < 1 || urinalInput.length() > 20){
-            return false;
-        }
+    public static Boolean goodString(String urinalInput){
+        if(urinalInput.length() < 1 || urinalInput.length() > 20) return false;
 
         int n = urinalInput.length();
         for(int i = 0; i < n; i++){
             char c = urinalInput.charAt(i);
-            if(c != '1' || c != '0') return false;
+            if(c != '0' && c != '1') return false;
         }
         return true;
     }
