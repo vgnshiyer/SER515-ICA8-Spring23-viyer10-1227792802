@@ -8,9 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URISyntaxException;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -51,15 +49,23 @@ public class urinalsTest {
     }
 
     @Test
-    public void test_with_no_file_in_directory(){
+    public void test_adjacent_urinals(){
         System.out.println("====== Vignesh Iyer == TEST FIVE EXECUTED =======");
+        String input = "10011";
+        var result = urinals.goodString(input);
+        assertFalse(result);
+    }
+
+    @Test
+    public void test_with_no_file_in_directory(){
+        System.out.println("====== Vignesh Iyer == TEST SIX EXECUTED =======");
         String filename = "not_there.dat";
         assertThrows(FileNotFoundException.class,() -> urinals.scanFile(filename));
     }
 
     @Test
     public void test_with_file_with_wrong_extension(){
-        System.out.println("====== Vignesh Iyer == TEST SIX EXECUTED =======");
+        System.out.println("====== Vignesh Iyer == TEST SEVEN EXECUTED =======");
         String filename = "wrong.txt"; // must be .dat
         Exception exception = assertThrows(Exception.class,() -> urinals.scanFile(filename));
         assertEquals(exception.getMessage(), "File should have an extension of .dat");
@@ -67,7 +73,7 @@ public class urinalsTest {
 
     @Test
     public void test_file_with_proper_format() throws FileNotFoundException, Exception{
-        System.out.println("====== Vignesh Iyer == TEST SEVEN EXECUTED =======");
+        System.out.println("====== Vignesh Iyer == TEST EIGHT EXECUTED =======");
         String multiLineString = "110101\n" +
                                  "1010001\n" +
                                  "0000010";
@@ -84,7 +90,7 @@ public class urinalsTest {
 
     @Test
     public void test_file_with_negative_one_at_the_end() throws FileNotFoundException, Exception{
-        System.out.println("====== Vignesh Iyer == TEST EIGHT EXECUTED =======");
+        System.out.println("====== Vignesh Iyer == TEST NINE EXECUTED =======");
         String multiLineString = "110101\n" +
                                  "1010001\n" +
                                  "0000010\n" + 

@@ -1,7 +1,6 @@
 package ser515.ica8.spring23.viyer10;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +19,12 @@ public class urinals {
             char c = urinalInput.charAt(i);
             if(c != '0' && c != '1') return false;
         }
+
+        for(int i = 1; i < n; i++){
+            char c1 = urinalInput.charAt(i-1);
+            char c2 = urinalInput.charAt(i);
+            if(c1 == '1' && c2 == '1') return false;
+        }
         return true;
     }
 
@@ -36,9 +41,13 @@ public class urinals {
         List<String> urinal_list = new ArrayList<String>();
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if(line.equals("-1")) break;
+            if(line.equals("-1")){
+                scanner.close();
+                break;
+            }
             urinal_list.add(line);
         }
+        scanner.close();
         return urinal_list;
     }
 
