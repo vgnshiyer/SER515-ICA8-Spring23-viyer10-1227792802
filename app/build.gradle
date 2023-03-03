@@ -27,7 +27,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'ser515.ica8.spring23.viyer10.App'
+    mainClass = 'ser515.ica8.spring23.viyer10.urinals'
 }
 
 jar {

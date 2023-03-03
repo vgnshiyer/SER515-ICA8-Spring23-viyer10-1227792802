@@ -1,15 +1,19 @@
 package ser515.ica8.spring23.viyer10;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class urinals {
+
+    public static String filename = "urinal.dat";
 
     public static Boolean goodString(String urinalInput){
         if(urinalInput.length() < 1 || urinalInput.length() > 20) return false;
@@ -74,7 +78,7 @@ public class urinals {
         return urinalCount;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         // input from command line or from file
@@ -95,9 +99,37 @@ public class urinals {
         }
 
         if(choice == 0){
-            // read cmd
+            String inp = "";
+            while(true){
+                System.out.println("Enter a urinal sequence (0's & 1's)");
+                inp = reader.readLine();
+                System.out.println(countUrinals(inp));
+                System.out.println("\nPress e to exit.");
+                inp = reader.readLine();
+                if(inp.equals("e")) break;
+            }
         } else {
-            // read file
+            List<String> urinal_list = scanFile(filename);
+
+            String outputPath = new File("app/src/main/resources").getAbsolutePath() + "/output/";
+            if(!new File(outputPath).exists()) new File(outputPath).mkdirs();
+
+            String outputFilename = "rule.txt";
+            File file = new File(outputPath,outputFilename);
+            int i = 1;
+            while(file.exists()){
+                outputFilename = "rule" + i + ".txt";
+                file = new File(outputPath,outputFilename);
+                i++;
+            }
+
+            PrintWriter writer = new PrintWriter(file);
+            for(String urinal_seq : urinal_list){
+                int count = countUrinals(urinal_seq);
+                writer.println(count);
+            }
+            writer.close();
+            System.out.println("Output has been saved to : " + outputPath + outputFilename);
         }
     }
 }
