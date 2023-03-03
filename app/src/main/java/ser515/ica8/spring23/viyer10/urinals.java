@@ -111,7 +111,7 @@ public class urinals {
         } else {
             List<String> urinal_list = scanFile(filename);
 
-            String outputPath = new File("app/src/main/resources").getAbsolutePath() + "/output/";
+            String outputPath = new File("output/").getAbsolutePath();
             if(!new File(outputPath).exists()) new File(outputPath).mkdirs();
 
             String outputFilename = "rule.txt";
