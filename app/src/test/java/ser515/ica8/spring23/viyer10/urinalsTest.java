@@ -57,7 +57,7 @@ public class urinalsTest {
     }
 
     @Test
-    public void test_with_no_file_in_directory(){
+    public void test_with_wrong_file_name(){
         System.out.println("====== Vignesh Iyer == TEST SIX EXECUTED =======");
         String filename = "not_there.dat";
         assertThrows(FileNotFoundException.class,() -> urinals.scanFile(filename));
@@ -107,8 +107,57 @@ public class urinalsTest {
     }
 
     @Test
-    public void test_count_urinals(){
+    public void test_empty_file() throws FileNotFoundException, Exception{
         System.out.println("====== Vignesh Iyer == TEST TEN EXECUTED =======");
+
+        String filename = "urinalTest.dat";
+        File file = new File(urinals.class.getClassLoader().getResource(filename).toURI());
+        PrintWriter printWriter = new PrintWriter(new FileWriter(file));
+        printWriter.print("");
+        printWriter.close();
+
+        List<String> urinal_list = urinals.scanFile(filename);
+        assertEquals(urinal_list.size(), 0);
+    }
+
+    @Test
+    public void test_write_bad_file() throws FileNotFoundException, Exception{
+        System.out.println("====== Vignesh Iyer == TEST ELEVEN EXECUTED =======");
+
+        String outputFilename = "not_rule.txt";
+        Exception exception = assertThrows(FileNotFoundException.class,() -> urinals.write(outputFilename));
+        assertEquals(exception.getMessage(), "Please provide filename as : rule.txt");
+    }
+
+    @Test
+    public void test_write_duplicate_file() throws FileNotFoundException, Exception{
+        System.out.println("====== Vignesh Iyer == TEST TWELVE EXECUTED =======");
+
+        String outputFilename = "rule.txt";
+        PrintWriter writer = urinals.write(outputFilename);
+        writer.print("random_text");
+        writer.close();
+
+        // trying to overwrite
+        writer = urinals.write(outputFilename);
+        writer.print("random_text");
+        writer.close();
+
+        File dir = new File("output/");
+        String[] files = dir.list();
+        assertEquals(files[1],"rule.txt");
+        assertEquals(files[0],"rule1.txt");
+        
+        //cleanup
+        for (File file : dir.listFiles()) {
+            file.delete();
+        }
+        dir.delete();
+    }
+
+    @Test
+    public void test_count_urinals(){
+        System.out.println("====== Vignesh Iyer == TEST THIRTEEN EXECUTED =======");
         
         String test_case_1 = "00000";
         System.out.println("Testing for input : " + test_case_1);

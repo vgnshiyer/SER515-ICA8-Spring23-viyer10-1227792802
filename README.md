@@ -49,6 +49,7 @@ make test
     3. Write a relevant test case -> which fails
     4. Write the code which satisfies the test case
     5. Make a final commit for that feature (with relevant commit messages which describes the process followed for that feature)
+- IOException are being handled inside the main method which do not occur often.
 - I have used a build tool (gradle) for this assignment. The instructions to run them are quite simple if the above commands are properly executed. Highly recommend to use the makefile.
 
 **Additional information on testing**
